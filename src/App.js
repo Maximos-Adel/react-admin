@@ -1,5 +1,5 @@
 import * as React from "react";
-import { Admin, Resource, ListGuesser, EditGuesser } from "react-admin";
+import { Admin, Resource,Logout} from "react-admin";
 import jsonServerProvider from "ra-data-json-server";
 import PostList from "./components/PostList"
 import PostEdit from "./components/PostEdit";
@@ -10,12 +10,30 @@ import UserCreate from "./components/UserCreate";
 import PostIcon from "@material-ui/icons/Book";
 import UserIcon from "@material-ui/icons/Group";
 import authProvider from "./authProvider";
+import { Layout } from "react-admin";
+import MyAppBar from "./components/MyAppBar";
+import ExitToAppIcon from "@material-ui/icons/ExitToApp";
+import { Menu } from "./components/Menu";
+
+
+const MyLogoutButton = (props) => (
+  <Logout {...props} icon={<ExitToAppIcon />} />
+   
+);
+
+
+const MyLayout = (props) => <Layout {...props} appBar={MyAppBar} menu={Menu} />;
 
 
 const dataProvider = jsonServerProvider("https://jsonplaceholder.typicode.com");
 
 const App = () => (
-  <Admin dataProvider={dataProvider} authProvider={authProvider}>
+  <Admin
+    layout={MyLayout}
+    dataProvider={dataProvider}
+    authProvider={authProvider}
+    logoutButton={MyLogoutButton}
+  >
     <Resource
       name="posts"
       list={PostList}
@@ -30,6 +48,7 @@ const App = () => (
       create={UserCreate}
       icon={UserIcon}
     />
+
     {/* <Resource name="users" list={ListGuesser} edit={EditGuesser} /> */}
     {/*<Resource name="comments" list={ListGuesser} edit={EditGuesser} />
     <Resource name="albums" list={ListGuesser} edit={EditGuesser} />

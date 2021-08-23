@@ -11,6 +11,8 @@ import {
 } from "react-admin";
 import TablePagination from "@material-ui/core/TablePagination";
 
+
+
 const PostPagination = (props) => {
   const { page, setPage } = useListContext();
   const [rowsPerPage, setRowsPerPage] = React.useState(10);
@@ -41,14 +43,19 @@ const PostFilter = (props) => (
     <SearchInput placeholder="Search Title" source="title" resettable alwaysOn />
   </Filter>
 );
+ 
 
 const PostList = (props) => {
   
   return (
-    <List {...props} pagination={<PostPagination />} filters={<PostFilter />}>
+    <List
+      {...props}
+      pagination={<PostPagination />}
+      filters={<PostFilter />}
+    >
       <Datagrid>
         <TextField source="id" />
-        <TextField source="title" />
+        <TextField style={{backgroundColor:"yellow"}}source="title" />
         <TextField source="body" />
         <EditButton basePath="/posts" />
         <DeleteButton basePath="/posts" />

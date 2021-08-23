@@ -25,7 +25,7 @@ const dataProvider = jsonServerProvider("https://jsonplaceholder.typicode.com");
 
 const App = () => (
   <Admin
-    layout={MyLayout}
+    // layout={MyLayout}
     dataProvider={dataProvider}
     authProvider={authProvider}
     logoutButton={MyLogoutButton}

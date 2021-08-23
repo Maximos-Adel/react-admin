@@ -1,7 +1,7 @@
 import * as React from "react";
-import { Admin, Resource,Logout} from "react-admin";
+import { Admin, Resource, Logout } from "react-admin";
 import jsonServerProvider from "ra-data-json-server";
-import PostList from "./components/PostList"
+import PostList from "./components/PostList";
 import PostEdit from "./components/PostEdit";
 import PostCreate from "./components/PostCreate";
 import UserList from "./components/UserList";
@@ -15,15 +15,11 @@ import MyAppBar from "./components/MyAppBar";
 import ExitToAppIcon from "@material-ui/icons/ExitToApp";
 import { Menu } from "./components/Menu";
 
-
 const MyLogoutButton = (props) => (
   <Logout {...props} icon={<ExitToAppIcon />} />
-   
 );
 
-
 const MyLayout = (props) => <Layout {...props} appBar={MyAppBar} menu={Menu} />;
-
 
 const dataProvider = jsonServerProvider("https://jsonplaceholder.typicode.com");
 
@@ -38,8 +34,8 @@ const App = () => (
       name="posts"
       list={PostList}
       edit={PostEdit}
-      create={PostCreate}
-      icon={PostIcon}
+      // create={PostCreate}
+      // icon={PostIcon}
     />
     <Resource
       name="users"

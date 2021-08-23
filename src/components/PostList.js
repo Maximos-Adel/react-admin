@@ -55,7 +55,7 @@ const PostList = (props) => {
     >
       <Datagrid>
         <TextField source="id" />
-        <TextField source="title" />
+        <TextField style={{backgroundColor:"yellow"}}source="title" />
         <TextField source="body" />
         <EditButton basePath="/posts" />
         <DeleteButton basePath="/posts" />
